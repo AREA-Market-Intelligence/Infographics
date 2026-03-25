@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar ATAP Malaysia — Analyst Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --amber: #f59e0b;
+  --amber-d: #d97706;
+  --amber-l: #fef3c7;
+  --amber-xl: #fffbeb;
+  --teal: #0d9488;
+  --teal-d: #0f766e;
+  --teal-l: #ccfbf1;
+  --sky: #0ea5e9;
+  --sky-l: #e0f2fe;
+  --navy: #0f172a;
+  --navy-m: #1e293b;
+  --navy-l: #334155;
+  --slate: #475569;
+  --muted: #94a3b8;
+  --rule: #e2e8f0;
+  --bg: #f8fafc;
+  --white: #ffffff;
+  --coral: #ef4444;
+  --coral-l: #fef2f2;
+  --orange: #f97316;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  background: var(--bg);
+  font-family: 'Cabinet Grotesk', sans-serif;
+  color: var(--navy);
+  padding: 40px 20px;
+}
+
+.wrap { max-width: 960px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+
+/* HERO */
+.hero {
+  background: var(--navy);
+  padding: 0;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  min-height: 300px;
+  position: relative;
+}
+
+.hero-left { padding: 44px 44px 40px; position: relative; z-index: 2; }
+
+.hero-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+
+.hero-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 52px;
+  color: #fff;
+  line-height: 1.0;
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.hero-title em { font-style: italic; color: var(--amber); }
+
+.hero-body {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.8;
+  max-width: 460px;
+}
+
+.hero-tags { display: flex; gap: 8px; margin-top: 24px; flex-wrap: wrap; }
+
+.hero-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  padding: 5px 11px;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+}
+
+.hero-tag.lit { border-color: rgba(245,158,11,0.5); color: var(--amber); }
+
+/* sun graphic */
+.hero-sun {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, rgba(245,158,11,0.15) 0%, rgba(245,158,11,0.03) 60%, transparent 80%);
+  position: relative;
+}
+
+/* KV STATS row */
+.kv-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.kv {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  padding: 20px 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.kv::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+
+.kv.amber::after { background: var(--amber); }
+.kv.teal::after  { background: var(--teal); }
+.kv.sky::after   { background: var(--sky); }
+.kv.coral::after { background: var(--coral); }
+
+.kv-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.kv-val {
+  font-family: 'Instrument Serif', serif;
+  font-size: 34px;
+  line-height: 1;
+  margin-bottom: 4px;
+  font-weight: 400;
+}
+
+.kv.amber .kv-val { color: var(--amber-d); }
+.kv.teal  .kv-val { color: var(--teal-d); }
+.kv.sky   .kv-val { color: var(--sky); }
+.kv.coral .kv-val { color: var(--coral); }
+
+.kv-unit { font-size: 11px; color: var(--muted); }
+
+/* SECTION HEADER */
+.sh {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.sh-num {
+  font-family: 'Instrument Serif', serif;
+  font-size: 42px;
+  color: var(--rule);
+  line-height: 1;
+  font-weight: 400;
+}
+
+.sh-right {}
+
+.sh-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 2px;
+}
+
+.sh-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.1;
+}
+
+/* TARIFF SECTION */
+.tariff-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  padding: 32px;
+}
+
+.tariff-visual {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.tariff-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tariff-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tbar-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+  width: 90px;
+  flex-shrink: 0;
+}
+
+.tbar-track {
+  flex: 1;
+  height: 28px;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.tbar-fill {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tbar-fill span {
+  font-family: 'Instrument Serif', serif;
+  font-size: 15px;
+  color: #fff;
+  white-space: nowrap;
+  font-weight: 400;
+}
+
+.tbar-fill.f1 { background: var(--amber); width: 61%; }
+.tbar-fill.f2 { background: var(--sky); width: 10.2%; }
+.tbar-fill.f3 { background: var(--teal); width: 28.9%; }
+
+.tariff-vs {
+  text-align: center;
+  padding: 0 10px;
+}
+
+.vs-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.vs-arrow {
+  font-size: 28px;
+  color: var(--rule);
+}
+
+.tariff-result {
+  background: var(--navy);
+  padding: 22px 24px;
+}
+
+.tr-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 8px;
+}
+
+.tr-val {
+  font-family: 'Instrument Serif', serif;
+  font-size: 44px;
+  color: var(--amber);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.tr-sub { font-size: 11.5px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+
+.export-note {
+  padding: 14px 18px;
+  background: var(--coral-l);
+  border-left: 3px solid var(--coral);
+  font-size: 12.5px;
+  color: var(--navy);
+  line-height: 1.6;
+}
+
+.export-note strong { color: var(--coral); }
+
+/* SAVINGS SECTION */
+.savings-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  padding: 32px;
+}
+
+.band-rows { display: flex; flex-direction: column; gap: 16px; }
+
+.band-row {
+  display: grid;
+  grid-template-columns: 130px 90px 1fr 1fr 120px;
+  gap: 12px;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.band-row:last-child { border-bottom: none; }
+
+.band-name {
+  font-size: 14px;
+  font-weight: 800;
+  display: block;
+}
+
+.band-kwh {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.pv-chip {
+  display: inline-block;
+  padding: 3px 8px;
+  background: var(--amber-l);
+  color: var(--amber-d);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  border: 1px solid rgba(245,158,11,0.3);
+}
+
+.bar-group { display: flex; flex-direction: column; gap: 5px; }
+
+.brow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brow-track {
+  height: 22px;
+  background: var(--bg);
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.brow-fill {
+  height: 100%;
+  position: absolute;
+  left: 0; top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 7px;
+  transition: width 1.3s cubic-bezier(0.16,1,0.3,1);
+}
+
+.brow-fill span {
+  font-family: 'Instrument Serif', serif;
+  font-size: 13px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.brow-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8.5px;
+  color: var(--muted);
+  width: 26px;
+  flex-shrink: 0;
+}
+
+.verdict-pill {
+  padding: 6px 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 500;
+  border: 1px solid;
+}
+
+.vp-no    { color: var(--coral); border-color: rgba(239,68,68,0.3); background: var(--coral-l); }
+.vp-maybe { color: var(--orange); border-color: rgba(249,115,22,0.3); background: #fff7ed; }
+.vp-yes   { color: var(--teal-d); border-color: rgba(13,148,136,0.3); background: var(--teal-l); }
+
+/* PHASE SECTION */
+.phase-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  overflow: hidden;
+}
+
+.phase-top { padding: 28px 32px 24px; }
+
+.phase-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.phase-panel {
+  padding: 28px 32px;
+  position: relative;
+}
+
+.phase-panel.p-atap { background: #fffbeb; border-top: 4px solid var(--amber); }
+.phase-panel.p-selco { background: var(--teal-l); border-top: 4px solid var(--teal); }
+
+.pp-era {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.p-atap .pp-era { color: var(--amber-d); }
+.p-selco .pp-era { color: var(--teal-d); }
+
+.pp-head {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+
+.value-display {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.vd-scenario {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  color: var(--muted);
+  width: 110px;
+  flex-shrink: 0;
+}
+
+.vd-val {
+  font-family: 'Instrument Serif', serif;
+  font-size: 26px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.vd-unit { font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+
+.p-atap .vd-val.high { color: var(--amber-d); }
+.p-atap .vd-val.low { color: var(--amber-d); opacity: 0.6; }
+.p-selco .vd-val.high { color: var(--teal-d); }
+.p-selco .vd-val.zero { color: var(--muted); text-decoration: line-through; }
+
+.pp-note {
+  margin-top: 16px;
+  padding: 12px 14px;
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: var(--slate);
+}
+
+.p-atap .pp-note { background: rgba(245,158,11,0.08); border-left: 3px solid var(--amber); }
+.p-selco .pp-note { background: rgba(13,148,136,0.08); border-left: 3px solid var(--teal); }
+
+/* TIMELINE SVG section */
+.timeline-card {
+  background: var(--navy);
+  padding: 36px 40px;
+  overflow: hidden;
+  position: relative;
+}
+
+.tc-head {
+  font-family: 'Instrument Serif', serif;
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 6px;
+  font-weight: 400;
+}
+
+.tc-head em { font-style: italic; color: var(--amber); }
+
+.tc-sub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 28px;
+}
+
+/* RETROFIT TABLE */
+.retrofit-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  padding: 32px;
+}
+
+.rt {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rt thead tr {
+  background: var(--navy);
+}
+
+.rt th {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  padding: 12px 14px;
+  text-align: left;
+  font-weight: 500;
+}
+
+.rt td {
+  padding: 14px 14px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: middle;
+}
+
+.rt tr:last-child td { border-bottom: none; }
+
+.band-name-cell {
+  font-size: 15px;
+  font-weight: 800;
+  display: block;
+}
+
+.cap-number {
+  font-family: 'Instrument Serif', serif;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+/* Progress arc for cap */
+.cap-row { display: flex; align-items: center; gap: 10px; }
+
+.cap-track {
+  height: 8px;
+  flex: 1;
+  background: var(--rule);
+  overflow: hidden;
+}
+
+.cap-fill {
+  height: 100%;
+  transition: width 1.2s ease;
+}
+
+/* CALLOUT */
+.callout {
+  padding: 18px 22px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.callout.amber { background: var(--amber-l); border-left: 4px solid var(--amber); }
+.callout.teal  { background: var(--teal-l); border-left: 4px solid var(--teal); }
+.callout.sky   { background: var(--sky-l); border-left: 4px solid var(--sky); }
+.callout.navy  { background: var(--navy); border-left: 4px solid var(--amber); }
+
+.callout-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+
+.callout-head {
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.callout.amber .callout-head { color: var(--amber-d); }
+.callout.teal  .callout-head { color: var(--teal-d); }
+.callout.sky   .callout-head { color: var(--sky); }
+.callout.navy  .callout-head { color: var(--amber); }
+
+.callout-text { font-size: 12px; line-height: 1.7; }
+.callout.amber .callout-text { color: var(--slate); }
+.callout.teal  .callout-text { color: var(--slate); }
+.callout.sky   .callout-text { color: var(--slate); }
+.callout.navy  .callout-text { color: rgba(255,255,255,0.7); }
+
+/* FOOTER */
+.foot {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  padding: 16px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.foot-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8.5px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.foot-brand {
+  font-family: 'Instrument Serif', serif;
+  font-size: 20px;
+  color: var(--amber-d);
+  font-style: italic;
+  flex-shrink: 0;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(20px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+.wrap > * {
+  animation: fadeUp 0.5s ease both;
+}
+
+.wrap > *:nth-child(1) { animation-delay:0.05s; }
+.wrap > *:nth-child(2) { animation-delay:0.1s; }
+.wrap > *:nth-child(3) { animation-delay:0.15s; }
+.wrap > *:nth-child(4) { animation-delay:0.2s; }
+.wrap > *:nth-child(5) { animation-delay:0.25s; }
+.wrap > *:nth-child(6) { animation-delay:0.3s; }
+.wrap > *:nth-child(7) { animation-delay:0.35s; }
+.wrap > *:nth-child(8) { animation-delay:0.4s; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ══════════════════════════════════ HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Analyst Brief · Malaysia Renewable Energy · March 2026</div>
+    <div class="hero-title">Solar <em>ATAP</em><br>Malaysia</div>
+    <div class="hero-body">A financial guide to the Solar Accelerated Transition Action Programme — covering right-sizing logic, household savings, export value dynamics, and the battery timing question.</div>
+    <div class="hero-tags">
+      <span class="hero-tag lit">Effective 1 Jan 2026</span>
+      <span class="hero-tag">SEDA-administered</span>
+      <span class="hero-tag">10-year tenure</span>
+      <span class="hero-tag lit">Self-consumption first</span>
+      <span class="hero-tag">Replaces NEM 3.0</span>
+    </div>
+  </div>
+  <div class="hero-sun">
+    <!-- Animated sun SVG -->
+    <svg width="280" height="280" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- outer ring slow rotation -->
+      <g style="transform-origin:140px 140px;animation:spin 40s linear infinite;">
+        <circle cx="140" cy="140" r="128" stroke="rgba(245,158,11,0.08)" stroke-width="1" stroke-dasharray="6 8"/>
+      </g>
+      <!-- mid ring -->
+      <g style="transform-origin:140px 140px;animation:spin 25s linear infinite reverse;">
+        <circle cx="140" cy="140" r="100" stroke="rgba(245,158,11,0.12)" stroke-width="1.5" stroke-dasharray="10 6"/>
+      </g>
+      <!-- glow circles -->
+      <circle cx="140" cy="140" r="72" fill="rgba(245,158,11,0.06)"/>
+      <circle cx="140" cy="140" r="52" fill="rgba(245,158,11,0.1)"/>
+      <!-- sun body -->
+      <circle cx="140" cy="140" r="38" fill="#f59e0b" opacity="0.9"/>
+      <circle cx="140" cy="140" r="30" fill="#fbbf24"/>
+      <!-- sun rays -->
+      <g style="transform-origin:140px 140px;animation:spin 20s linear infinite;">
+        <line x1="140" y1="96" x2="140" y2="80" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+        <line x1="169.3" y1="110.7" x2="180.5" y2="99.5" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+        <line x1="184" y1="140" x2="200" y2="140" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+        <line x1="169.3" y1="169.3" x2="180.5" y2="180.5" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+        <line x1="140" y1="184" x2="140" y2="200" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+        <line x1="110.7" y1="169.3" x2="99.5" y2="180.5" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+        <line x1="96" y1="140" x2="80" y2="140" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+        <line x1="110.7" y1="110.7" x2="99.5" y2="99.5" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+      </g>
+      <!-- central text -->
+      <text x="140" y="135" text-anchor="middle" font-family="'Instrument Serif', serif" font-size="13" fill="white" font-style="italic">44.43</text>
+      <text x="140" y="151" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="rgba(255,255,255,0.7)" letter-spacing="1">sen/kWh</text>
+    </svg>
+    <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ KV STATS -->
+<div class="kv-row">
+  <div class="kv amber">
+    <div class="kv-label">Self-use kWh value</div>
+    <div class="kv-val">44.43</div>
+    <div class="kv-unit">sen / kWh — full avoidable import cost</div>
+  </div>
+  <div class="kv teal">
+    <div class="kv-label">Export kWh value</div>
+    <div class="kv-val">27.03</div>
+    <div class="kv-unit">sen / kWh — energy charge only (during ATAP)</div>
+  </div>
+  <div class="kv sky">
+    <div class="kv-label">Export value after Year 10</div>
+    <div class="kv-val">0</div>
+    <div class="kv-unit">sen / kWh — zero under SELCO</div>
+  </div>
+  <div class="kv coral">
+    <div class="kv-label">Self-use premium over export</div>
+    <div class="kv-val">+64%</div>
+    <div class="kv-unit">Reason to prioritise self-consumption</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ TARIFF BREAKDOWN -->
+<div class="tariff-card">
+  <div class="sh">
+    <div class="sh-num">01</div>
+    <div class="sh-right">
+      <div class="sh-tag">Tariff Structure</div>
+      <div class="sh-title">What Each kWh Is Actually Worth</div>
+    </div>
+  </div>
+
+  <div class="tariff-visual">
+    <div class="tariff-stack">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">TNB RP4 · July 2025 · Below 1,500 kWh/month</div>
+      <div class="tariff-bar-item">
+        <div class="tbar-label">Energy</div>
+        <div class="tbar-track">
+          <div class="tbar-fill f1"><span>27.03 sen</span></div>
+        </div>
+      </div>
+      <div style="height:6px;"></div>
+      <div class="tariff-bar-item">
+        <div class="tbar-label">Capacity</div>
+        <div class="tbar-track">
+          <div class="tbar-fill f2"><span>&nbsp;</span></div>
+        </div>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-left:8px;white-space:nowrap;">4.55 sen</span>
+      </div>
+      <div style="height:6px;"></div>
+      <div class="tariff-bar-item">
+        <div class="tbar-label">Network</div>
+        <div class="tbar-track">
+          <div class="tbar-fill f3"><span>12.85 sen</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tariff-vs">
+      <span class="vs-label">Total</span>
+      <div class="vs-arrow">⟹</div>
+    </div>
+
+    <div class="tariff-result">
+      <div class="tr-tag">Full avoidable import cost</div>
+      <div class="tr-val">RM 0.4443</div>
+      <div class="tr-sub">per self-consumed solar kWh<br>before Additional Fuel Allowance (AFA)</div>
+    </div>
+  </div>
+
+  <div class="export-note">
+    ⚡ <strong>Export earns only the Energy Charge (27.03 sen)</strong> — Capacity and Network charges are only avoided by self-consuming, not exporting. This gap is the core argument for maximising on-site consumption and for battery value post-Year 10.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ SAVINGS BANDS -->
+<div class="savings-card">
+  <div class="sh">
+    <div class="sh-num">02</div>
+    <div class="sh-right">
+      <div class="sh-tag">Annual Savings — Years 1 to 10</div>
+      <div class="sh-title">Right-Sized PV: Savings by Household Band</div>
+    </div>
+  </div>
+  <div style="font-size:12px;color:var(--muted);margin-bottom:24px;line-height:1.6;">Right-sizing rule: <strong>PV kWp ≈ monthly kWh ÷ 120</strong> (1 kWp → ~120 kWh/month). 50% direct self-consumption solar-only; 86% with 5 kWh battery. Bars scale to RM 6,000/yr max.</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:12px;margin-bottom:20px;">
+    <!-- band cards with donut-style SVG indicator -->
+    <!-- LOW -->
+    <div style="background:var(--bg);padding:18px;border:1px solid var(--rule);">
+      <div style="font-size:13px;font-weight:900;color:#6366f1;margin-bottom:2px;">Low</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-bottom:12px;">300 kWh/mo</div>
+      <svg width="80" height="80" viewBox="0 0 80 80" style="display:block;margin:0 auto 10px;">
+        <circle cx="40" cy="40" r="30" fill="none" stroke="var(--rule)" stroke-width="8"/>
+        <circle cx="40" cy="40" r="30" fill="none" stroke="#f59e0b" stroke-width="8"
+          stroke-dasharray="188.5" stroke-dashoffset="150" stroke-linecap="round"
+          style="transform-origin:40px 40px;transform:rotate(-90deg);transition:stroke-dashoffset 1.4s ease;"
+          class="arc-fill" data-target="150"/>
+        <text x="40" y="37" text-anchor="middle" font-family="'Instrument Serif',serif" font-size="13" fill="#d97706">2.5</text>
+        <text x="40" y="49" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#94a3b8">kWp</text>
+      </svg>
+      <div style="text-align:center;">
+        <div style="font-family:'Instrument Serif',serif;font-size:18px;color:#d97706;">RM 1,286</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--muted);">solar only / yr</div>
+        <div style="font-family:'Instrument Serif',serif;font-size:15px;color:var(--teal-d);margin-top:3px;">RM 1,473</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--muted);">+battery / yr</div>
+        <div class="verdict-pill vp-no" style="margin-top:8px;display:inline-block;">No BESS</div>
+      </div>
+    </div>
+    <!-- AVERAGE -->
+    <div style="background:var(--bg);padding:18px;border:1px solid var(--rule);">
+      <div style="font-size:13px;font-weight:900;color:#22c55e;margin-bottom:2px;">Average</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-bottom:12px;">350 kWh/mo</div>
+      <svg width="80" height="80" viewBox="0 0 80 80" style="display:block;margin:0 auto 10px;">
+        <circle cx="40" cy="40" r="30" fill="none" stroke="var(--rule)" stroke-width="8"/>
+        <circle cx="40" cy="40" r="30" fill="none" stroke="#f59e0b" stroke-width="8"
+          stroke-dasharray="188.5" stroke-dashoffset="140" stroke-linecap="round"
+          style="transform-origin:40px 40px;transform:rotate(-90deg);transition:stroke-dashoffset 1.4s ease;"
+          class="arc-fill" data-target="140"/>
+        <text x="40" y="37" text-anchor="middle" font-family="'Instrument Serif',serif" font-size="13" fill="#d97706">2.9</text>
+        <text x="40" y="49" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#94a3b8">kWp</text>
+      </svg>
+      <div style="text-align:center;">
+        <div style="font-family:'Instrument Serif',serif;font-size:18px;color:#d97706;">RM 1,501</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--muted);">solar only / yr</div>
+        <div style="font-family:'Instrument Serif',serif;font-size:15px;color:var(--teal-d);margin-top:3px;">RM 1,718</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--muted);">+battery / yr</div>
+        <div class="verdict-pill vp-no" style="margin-top:8px;display:inline-block;">No BESS</div>
+      </div>
+    </div>
+    <!-- MEDIUM -->
+    <div style="background:var(--bg);padding:18px;border:1px solid rgba(249,115,22,0.3);">
+      <div style="font-size:13px;font-weight:900;color:#f97316;margin-bottom:2px;">Medium</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-bottom:12px;">500 kWh/mo</div>
+      <svg width="80" height="80" viewBox="0 0 80 80" style="display:block;margin:0 auto 10px;">
+        <circle cx="40" cy="40" r="30" fill="none" stroke="var(--rule)" stroke-width="8"/>
+        <circle cx="40" cy="40" r="30" fill="none" stroke="#f97316" stroke-width="8"
+          stroke-dasharray="188.5" stroke-dashoffset="110" stroke-linecap="round"
+          style="transform-origin:40px 40px;transform:rotate(-90deg);transition:stroke-dashoffset 1.4s ease;"
+          class="arc-fill" data-target="110"/>
+        <text x="40" y="37" text-anchor="middle" font-family="'Instrument Serif',serif" font-size="13" fill="#f97316">4.2</text>
+        <text x="40" y="49" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#94a3b8">kWp</text>
+      </svg>
+      <div style="text-align:center;">
+        <div style="font-family:'Instrument Serif',serif;font-size:18px;color:#f97316;">RM 2,144</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--muted);">solar only / yr</div>
+        <div style="font-family:'Instrument Serif',serif;font-size:15px;color:var(--teal-d);margin-top:3px;">RM 2,455</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--muted);">+battery / yr</div>
+        <div class="verdict-pill vp-maybe" style="margin-top:8px;display:inline-block;">Borderline</div>
+      </div>
+    </div>
+    <!-- HIGH -->
+    <div style="background:var(--teal-l);padding:18px;border:1px solid rgba(13,148,136,0.3);">
+      <div style="font-size:13px;font-weight:900;color:var(--teal-d);margin-bottom:2px;">High</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-bottom:12px;">800 kWh/mo</div>
+      <svg width="80" height="80" viewBox="0 0 80 80" style="display:block;margin:0 auto 10px;">
+        <circle cx="40" cy="40" r="30" fill="none" stroke="rgba(13,148,136,0.2)" stroke-width="8"/>
+        <circle cx="40" cy="40" r="30" fill="none" stroke="#0d9488" stroke-width="8"
+          stroke-dasharray="188.5" stroke-dashoffset="60" stroke-linecap="round"
+          style="transform-origin:40px 40px;transform:rotate(-90deg);transition:stroke-dashoffset 1.4s ease;"
+          class="arc-fill" data-target="60"/>
+        <text x="40" y="37" text-anchor="middle" font-family="'Instrument Serif',serif" font-size="13" fill="#0f766e">6.7</text>
+        <text x="40" y="49" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#94a3b8">kWp</text>
+      </svg>
+      <div style="text-align:center;">
+        <div style="font-family:'Instrument Serif',serif;font-size:18px;color:var(--teal-d);">RM 3,430</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--muted);">solar only / yr</div>
+        <div style="font-family:'Instrument Serif',serif;font-size:15px;color:var(--teal-d);margin-top:3px;">RM 3,928</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--muted);">+battery / yr</div>
+        <div class="verdict-pill vp-yes" style="margin-top:8px;display:inline-block;">Defendable</div>
+      </div>
+    </div>
+    <!-- VERY HIGH -->
+    <div style="background:#f0fdf4;padding:18px;border:1px solid rgba(22,163,74,0.3);">
+      <div style="font-size:13px;font-weight:900;color:#15803d;margin-bottom:2px;">Very High</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-bottom:12px;">1,200 kWh/mo</div>
+      <svg width="80" height="80" viewBox="0 0 80 80" style="display:block;margin:0 auto 10px;">
+        <circle cx="40" cy="40" r="30" fill="none" stroke="rgba(22,163,74,0.2)" stroke-width="8"/>
+        <circle cx="40" cy="40" r="30" fill="none" stroke="#16a34a" stroke-width="8"
+          stroke-dasharray="188.5" stroke-dashoffset="5" stroke-linecap="round"
+          style="transform-origin:40px 40px;transform:rotate(-90deg);transition:stroke-dashoffset 1.4s ease;"
+          class="arc-fill" data-target="5"/>
+        <text x="40" y="37" text-anchor="middle" font-family="'Instrument Serif',serif" font-size="13" fill="#15803d">10.0</text>
+        <text x="40" y="49" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#94a3b8">kWp</text>
+      </svg>
+      <div style="text-align:center;">
+        <div style="font-family:'Instrument Serif',serif;font-size:18px;color:#15803d;">RM 5,145</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--muted);">solar only / yr</div>
+        <div style="font-family:'Instrument Serif',serif;font-size:15px;color:var(--teal-d);margin-top:3px;">RM 5,891</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--muted);">+battery / yr</div>
+        <div class="verdict-pill vp-yes" style="margin-top:8px;display:inline-block;">Clear yes</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout amber">
+    <div class="callout-icon">📐</div>
+    <div>
+      <div class="callout-head">Right-Sizing Rule</div>
+      <div class="callout-text">PV kWp ≈ monthly kWh ÷ 120. A typical 500 kWh/month home needs ~4.2 kWp, not a forced 5 kWp. Oversizing increases export, which is compensated at a lower rate, reducing overall ROI. The donuts above show approximate fill level relative to the 10 kWp domestic cap.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ ATAP vs SELCO -->
+<div class="phase-card">
+  <div class="phase-top">
+    <div class="sh">
+      <div class="sh-num">03</div>
+      <div class="sh-right">
+        <div class="sh-tag">The Rule Change at Year 10</div>
+        <div class="sh-title">Why Battery Becomes More Valuable After ATAP Ends</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-panels">
+    <div class="phase-panel p-atap">
+      <div class="pp-era">Years 1–10 · ATAP Tenure</div>
+      <div class="pp-head">Export has<br>partial value</div>
+      <div class="value-display">
+        <div class="vd-scenario">Self-consumed</div>
+        <div class="vd-val high">44.43</div>
+        <div class="vd-unit" style="color:var(--amber-d);">sen</div>
+      </div>
+      <div class="value-display">
+        <div class="vd-scenario">Exported kWh</div>
+        <div class="vd-val low">27.03</div>
+        <div class="vd-unit" style="color:var(--amber-d);opacity:0.6;">sen</div>
+      </div>
+      <div class="pp-note">Battery competes against an export credit that still has <em>some</em> value. The financial case for battery is present but weaker during ATAP years — especially for low-medium usage households.</div>
+    </div>
+
+    <div class="phase-panel p-selco">
+      <div class="pp-era">Year 10+ · SELCO · Strict Self-Consumption</div>
+      <div class="pp-head">Export value<br>drops to zero</div>
+      <div class="value-display">
+        <div class="vd-scenario">Self-consumed</div>
+        <div class="vd-val high">44.43</div>
+        <div class="vd-unit" style="color:var(--teal-d);">sen</div>
+      </div>
+      <div class="value-display">
+        <div class="vd-scenario">Exported kWh</div>
+        <div class="vd-val zero">0</div>
+        <div class="vd-unit" style="color:var(--muted);">sen — stranded</div>
+      </div>
+      <div class="pp-note">Battery rescues energy that would otherwise be <strong>completely lost</strong>. No export allowed, no rollover. Battery value increases materially — it converts stranded daytime surplus into useful night-time savings.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ TIMELINE SVG -->
+<div class="timeline-card">
+  <div class="tc-head">Does BESS Make More Sense <em>After</em> ATAP?</div>
+  <div class="tc-sub">Annual savings trajectory for a 500 kWh/month (Medium) household across 30 years — solar only vs solar + battery</div>
+
+  <!-- SVG area chart -->
+  <svg viewBox="0 0 860 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;overflow:visible;">
+    <!-- grid lines -->
+    <line x1="0" y1="200" x2="860" y2="200" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <line x1="0" y1="150" x2="860" y2="150" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <line x1="0" y1="100" x2="860" y2="100" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <line x1="0" y1="50" x2="860" y2="50" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+    <!-- Y axis labels -->
+    <text x="0" y="205" font-family="'JetBrains Mono',monospace" font-size="9" fill="rgba(255,255,255,0.3)">0</text>
+    <text x="0" y="155" font-family="'JetBrains Mono',monospace" font-size="9" fill="rgba(255,255,255,0.3)">RM1k</text>
+    <text x="0" y="105" font-family="'JetBrains Mono',monospace" font-size="9" fill="rgba(255,255,255,0.3)">RM2k</text>
+    <text x="0" y="55" font-family="'JetBrains Mono',monospace" font-size="9" fill="rgba(255,255,255,0.3)">RM3k</text>
+
+    <!-- ATAP period band -->
+    <rect x="30" y="10" width="265" height="215" fill="rgba(245,158,11,0.04)" rx="0"/>
+    <text x="33" y="25" font-family="'JetBrains Mono',monospace" font-size="8" fill="rgba(245,158,11,0.5)" letter-spacing="1">ATAP ▶ YEARS 1–10</text>
+
+    <!-- SELCO period band -->
+    <rect x="295" y="10" width="565" height="215" fill="rgba(13,148,136,0.04)" rx="0"/>
+    <text x="298" y="25" font-family="'JetBrains Mono',monospace" font-size="8" fill="rgba(13,148,136,0.5)" letter-spacing="1">SELCO ▶ YEARS 11–30</text>
+
+    <!-- divider -->
+    <line x1="295" y1="10" x2="295" y2="225" stroke="rgba(255,255,255,0.15)" stroke-dasharray="4 4" stroke-width="1"/>
+    <text x="292" y="235" font-family="'JetBrains Mono',monospace" font-size="8" fill="rgba(255,255,255,0.4)" text-anchor="middle">Yr 10</text>
+
+    <!-- Solar+BESS area (teal) - higher line -->
+    <!-- Y values: ATAP Y1-10 savings = RM2455, SELCO Y11-20 = RM4356, Y21-30 = RM4127 -->
+    <!-- Scaled: 2455→122px from bottom=78px, 4356→36px, 4127→42px. Max RM5k=0px -->
+    <!-- Let me use a simpler scale: 0-3000 range displayed, RM3k=top=10px, RM0=bottom=200px -->
+    <!-- Solar BESS: Y1-10=2455(~37px from bottom at 200 scale, 200-(2455/3000*190)=44), Y11-20=4356(exceeds) let me use 5500 range -->
+    <!-- Scale: 0-5500. H=190. px = 200 - (val/5500*190) -->
+    <!-- 2455 → 200-(2455/5500*190)=200-84.8=115 -->
+    <!-- 4356 → 200-(4356/5500*190)=200-150=50 -->
+    <!-- 4127 → 200-(4127/5500*190)=200-142.4=57.6 -->
+    <!-- solar only: 2144→200-(2144/5500*190)=200-74=126, selco Y11=2533→200-87.6=112.4, Y21=2399→200-82.9=117 -->
+
+    <!-- path for solar+bess - teal fill area -->
+    <defs>
+      <linearGradient id="bessFill" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#0d9488" stop-opacity="0.4"/>
+        <stop offset="100%" stop-color="#0d9488" stop-opacity="0.0"/>
+      </linearGradient>
+      <linearGradient id="solarFill" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.3"/>
+        <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.0"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Solar+BESS area -->
+    <path d="M30,115 L295,115 L295,50 L580,50 L860,57 L860,200 L30,200 Z"
+      fill="url(#bessFill)" opacity="0.6"/>
+    <!-- Solar+BESS line -->
+    <polyline points="30,115 295,115 295,50 580,50 860,57"
+      fill="none" stroke="#0d9488" stroke-width="2.5" stroke-linejoin="round"
+      style="stroke-dasharray:1000;stroke-dashoffset:1000;animation:drawLine 2s ease forwards 0.5s;"/>
+
+    <!-- Solar only area -->
+    <path d="M30,126 L295,126 L295,112 L580,112 L860,117 L860,200 L30,200 Z"
+      fill="url(#solarFill)" opacity="0.5"/>
+    <!-- Solar only line -->
+    <polyline points="30,126 295,126 295,112 580,112 860,117"
+      fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="6 4"
+      style="stroke-dasharray:1000 4;stroke-dashoffset:1000;animation:drawLine 2s ease forwards 0.8s;"/>
+
+    <!-- Battery retrofit moment annotation -->
+    <circle cx="295" cy="50" r="5" fill="#0d9488" opacity="0.9"/>
+    <circle cx="295" cy="112" r="4" fill="rgba(13,148,136,0.3)" stroke="#0d9488" stroke-width="1.5"/>
+    <text x="302" y="42" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#4db6ac">↑ BESS retrofit point</text>
+    <text x="302" y="53" font-family="'JetBrains Mono',monospace" font-size="8.5" fill="#4db6ac">Savings jump here</text>
+
+    <!-- Year labels -->
+    <text x="162" y="220" font-family="'JetBrains Mono',monospace" font-size="8" fill="rgba(255,255,255,0.3)" text-anchor="middle">Y1–10</text>
+    <text x="437" y="220" font-family="'JetBrains Mono',monospace" font-size="8" fill="rgba(255,255,255,0.3)" text-anchor="middle">Y11–20</text>
+    <text x="722" y="220" font-family="'JetBrains Mono',monospace" font-size="8" fill="rgba(255,255,255,0.3)" text-anchor="middle">Y21–30</text>
+
+    <!-- Value labels on lines -->
+    <text x="160" y="109" font-family="'Instrument Serif',serif" font-size="11" fill="#f59e0b">RM 2,144</text>
+    <text x="160" y="98" font-family="'Instrument Serif',serif" font-size="11" fill="#0d9488">RM 2,455</text>
+    <text x="430" y="104" font-family="'Instrument Serif',serif" font-size="11" fill="#f59e0b">RM 2,533</text>
+    <text x="430" y="43" font-family="'Instrument Serif',serif" font-size="11" fill="#0d9488">RM 4,356</text>
+
+    <style>@keyframes drawLine { to { stroke-dashoffset: 0; } }</style>
+  </svg>
+
+  <div style="display:flex;gap:20px;margin-top:16px;flex-wrap:wrap;">
+    <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:rgba(255,255,255,0.6);">
+      <div style="width:24px;height:3px;background:#0d9488;"></div>
+      Solar + 5 kWh BESS
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:rgba(255,255,255,0.6);">
+      <div style="width:24px;height:2px;background:#f59e0b;background:repeating-linear-gradient(to right,#f59e0b 0,#f59e0b 6px,transparent 6px,transparent 10px);"></div>
+      Solar only
+    </div>
+    <div style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(255,255,255,0.3);">500 kWh/month household · Medium band · Illustrative</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ RETROFIT TABLE -->
+<div class="retrofit-card">
+  <div class="sh">
+    <div class="sh-num">04</div>
+    <div class="sh-right">
+      <div class="sh-tag">Battery Retrofit at Year 10</div>
+      <div class="sh-title">Maximum Justifiable 5 kWh Battery Capex at Year 10</div>
+    </div>
+  </div>
+  <div style="font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.6;">Gross 20-year benefit from Year 10 onward. Years 11–20 uplift ≈ RM1.82 × monthly kWh/yr. Years 21–30 ≈ RM1.73 × monthly kWh/yr. Current installed cost ~RM13,500 shown as reference line.</div>
+
+  <table class="rt">
+    <thead>
+      <tr>
+        <th>Band</th>
+        <th>Monthly Load</th>
+        <th>Max Justifiable Capex</th>
+        <th style="width:220px;">vs RM 13,500 current price</th>
+        <th>Year 10 Verdict</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="band-name-cell" style="color:#6366f1;">Low</span></td>
+        <td><span style="font-family:'JetBrains Mono',monospace;font-size:11px;">300 kWh/mo</span></td>
+        <td>
+          <span class="cap-number" style="color:#94a3b8;">~RM 9,500</span>
+        </td>
+        <td>
+          <div class="cap-row">
+            <div class="cap-track">
+              <div class="cap-fill" style="width:70%;background:#94a3b8;" class="retro-fill" data-w="70"></div>
+            </div>
+            <span style="font-size:10px;color:var(--muted);white-space:nowrap;margin-left:6px;">below cost</span>
+          </div>
+        </td>
+        <td><span class="verdict-pill vp-no">No</span></td>
+      </tr>
+      <tr>
+        <td><span class="band-name-cell" style="color:#22c55e;">Average</span></td>
+        <td><span style="font-family:'JetBrains Mono',monospace;font-size:11px;">350 kWh/mo</span></td>
+        <td>
+          <span class="cap-number" style="color:#94a3b8;">~RM 11,300</span>
+        </td>
+        <td>
+          <div class="cap-row">
+            <div class="cap-track">
+              <div class="cap-fill" style="width:84%;background:#94a3b8;" class="retro-fill" data-w="84"></div>
+            </div>
+            <span style="font-size:10px;color:var(--muted);white-space:nowrap;margin-left:6px;">below cost</span>
+          </div>
+        </td>
+        <td><span class="verdict-pill vp-no">Probably not</span></td>
+      </tr>
+      <tr style="background:rgba(249,115,22,0.04);">
+        <td><span class="band-name-cell" style="color:#f97316;">Medium</span></td>
+        <td><span style="font-family:'JetBrains Mono',monospace;font-size:11px;">500 kWh/mo</span></td>
+        <td>
+          <span class="cap-number" style="color:#f97316;">~RM 16,600</span>
+        </td>
+        <td>
+          <div class="cap-row">
+            <div class="cap-track">
+              <div class="cap-fill" style="width:100%;background:#f97316;"></div>
+            </div>
+            <span style="font-size:10px;color:#f97316;white-space:nowrap;margin-left:6px;">+RM 3,100 headroom</span>
+          </div>
+        </td>
+        <td><span class="verdict-pill vp-maybe">Plausible</span></td>
+      </tr>
+      <tr style="background:rgba(13,148,136,0.04);">
+        <td><span class="band-name-cell" style="color:var(--teal-d);">High</span></td>
+        <td><span style="font-family:'JetBrains Mono',monospace;font-size:11px;">800 kWh/mo</span></td>
+        <td>
+          <span class="cap-number" style="color:var(--teal-d);">~RM 27,300</span>
+        </td>
+        <td>
+          <div class="cap-row">
+            <div class="cap-track">
+              <div class="cap-fill" style="width:100%;background:var(--teal);"></div>
+            </div>
+            <span style="font-size:10px;color:var(--teal-d);white-space:nowrap;margin-left:6px;">+RM 13,800 headroom</span>
+          </div>
+        </td>
+        <td><span class="verdict-pill vp-yes">Yes</span></td>
+      </tr>
+      <tr style="background:rgba(22,163,74,0.04);">
+        <td><span class="band-name-cell" style="color:#15803d;">Very High</span></td>
+        <td><span style="font-family:'JetBrains Mono',monospace;font-size:11px;">1,200 kWh/mo</span></td>
+        <td>
+          <span class="cap-number" style="color:#15803d;">~RM 41,500</span>
+        </td>
+        <td>
+          <div class="cap-row">
+            <div class="cap-track">
+              <div class="cap-fill" style="width:100%;background:#16a34a;"></div>
+            </div>
+            <span style="font-size:10px;color:#15803d;white-space:nowrap;margin-left:6px;">+RM 28,000 headroom</span>
+          </div>
+        </td>
+        <td><span class="verdict-pill vp-yes">Strongly yes</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout teal" style="margin-top:16px;">
+    <div class="callout-icon">🔋</div>
+    <div>
+      <div class="callout-head">Practical note: Choose hybrid-ready inverter on Day 1</div>
+      <div class="callout-text">Even if you don't install a battery immediately, selecting a battery-ready / hybrid-compatible inverter architecture now preserves the Year 10 retrofit option cleanly. A messy retrofit with an incompatible inverter can cost RM3,000–6,000 extra and erode the economics.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ CONCLUSION -->
+<div style="background:var(--navy);padding:44px 44px 36px;position:relative;overflow:hidden;">
+  <!-- decorative background -->
+  <div style="position:absolute;right:-60px;bottom:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(245,158,11,0.07) 0%,transparent 70%);pointer-events:none;"></div>
+
+  <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:12px;">Analyst Conclusion</div>
+  <div style="font-family:'Instrument Serif',serif;font-size:30px;color:#fff;line-height:1.1;margin-bottom:16px;font-weight:400;">Solar ATAP makes sense for the right household. <em style="color:var(--amber);">Battery timing is the key decision.</em></div>
+  <div style="font-size:12.5px;color:rgba(255,255,255,0.6);line-height:1.8;max-width:680px;margin-bottom:28px;">The financial case depends on usage level and understanding the two-phase structure. The question is not just "should I buy solar?" — it's <em>"when should I add a battery, and what size system should I build toward?"</em></div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+    <div style="padding:20px 22px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-left:4px solid var(--amber);">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:10px;">Day 1 Decisions</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.7);line-height:1.75;">
+        <strong style="color:#fff;">Right-size PV</strong> — kWh ÷ 120 = kWp. Do not oversize.<br><br>
+        <strong style="color:#fff;">Battery optional</strong> — only clearly justified for 800+ kWh/month.<br><br>
+        <strong style="color:#fff;">Hybrid-ready inverter</strong> — always, regardless of current battery decision.
+      </div>
+    </div>
+    <div style="padding:20px 22px;background:rgba(13,148,136,0.08);border:1px solid rgba(13,148,136,0.2);border-left:4px solid var(--teal);">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#4db6ac;margin-bottom:10px;">Year 10 Decision</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.7);line-height:1.75;">
+        <strong style="color:#fff;">Reassess battery</strong> — export value drops to zero, making battery economics materially better.<br><br>
+        <strong style="color:#fff;">Battery prices likely lower</strong> by 2035–36. Wait, then act.<br><br>
+        <strong style="color:#fff;">High and Very High</strong> — retrofit strongly justified. Medium — evaluate case-by-case.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ FOOTER -->
+<div class="foot">
+  <div class="foot-note">
+    Tariff: TNB RP4 effective July 2025 · ATAP: SEDA GP/ST/No.60/2025, effective 1 Jan 2026 · HOMI sizing logic applied<br>
+    Savings assume constant tariffs, 2.5% annual PV degradation (Y11–20 = 97.5%; Y21–30 = 95%). Battery replacement costs excluded from all figures.
+  </div>
+  <div class="foot-brand">AMI</div>
+</div>
+
+</div><!-- /wrap -->
+
+<script>
+// Animate the arc donuts on load
+window.addEventListener('load', () => {
+  document.querySelectorAll('.arc-fill').forEach(el => {
+    const target = parseFloat(el.getAttribute('data-target'));
+    const start = 188.5; // fully hidden
+    el.setAttribute('stroke-dashoffset', start);
+    setTimeout(() => {
+      el.style.transition = 'stroke-dashoffset 1.4s cubic-bezier(0.16,1,0.3,1)';
+      el.setAttribute('stroke-dashoffset', target);
+    }, 300);
+  });
+
+  // Animate tariff bars
+  document.querySelectorAll('.tbar-fill').forEach(el => {
+    const w = el.style.width;
+    el.style.width = '0%';
+    setTimeout(() => {
+      el.style.transition = 'width 1.2s cubic-bezier(0.16,1,0.3,1)';
+      el.style.width = w;
+    }, 400);
+  });
+});
+</script>
+</body>
+</html>
